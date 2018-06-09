@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+.idea/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*$py.class
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+static/

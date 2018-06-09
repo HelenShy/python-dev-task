@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "agreement_id": "2",
+    "amount": "24",
+    "date": "03-12-2017"
+  },
+  {
+    "id": "2",
+    "agreement_id": "3",
+    "amount": "23",
+    "date": "02-12-2017"
+  },
+  {
+    "id": "3",
+    "agreement_id": "3",
+    "amount": "27",
+    "date": "01-12-2017"
+  },
+  {
+    "id": "4",
+    "agreement_id": "1",
+    "amount": "27",
+    "date": "01-12-2017"
+  },
+  {
+    "id": "5",
+    "agreement_id": "2",
+    "amount": "27",
+    "date": "01-12-2017"
+  }
+]
