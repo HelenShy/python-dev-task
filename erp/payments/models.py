@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.conf import settings
 
@@ -40,7 +42,9 @@ class Agreement(models.Model):
 
 class PaymentManager(models.Manager):
     def all(self):
-        with open(settings.BASE_DIR + '\payments.json') as file:
+        # TODO: FileNotFoundError: [Errno 2] No such file or directory: 'python-dev-task/erp\\payments.json'
+        # TODO: use https://docs.python.org/3/library/os.path.html#os.path.join
+        with open(os.path.join(settings.BASE_DIR + '/payments.json')) as file:
             data = str(file.read())
         p = json.loads(data,  object_hook = as_payment)
         return p

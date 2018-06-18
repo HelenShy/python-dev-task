@@ -136,6 +136,6 @@ REST_FRAMEWORK = {
     )
 }
 
-
+# TODO: переменные нигде не используются
 PAYMENTS_API_NAME = 'admin'
 PAYMENTS_API_PASSWORD = 'skorost123'

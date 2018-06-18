@@ -19,12 +19,12 @@ class AgreementsViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk):
         agreement = Agreement.objects.by_id(int(pk))
         serializer = AgreementSerializer(agreement, many=False)
-        return Response(serializer.data)
+        return Response(serializer.data)    # TODO: нет статуса
 
     def list(self, request):
         agreements = Agreement.objects.all()
         serializer = AgreementSerializer(agreements, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data)    # TODO: нет статуса
 
 
 class PaymentsViewSet(viewsets.ViewSet):

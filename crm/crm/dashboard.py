@@ -16,7 +16,7 @@ try:
 except ImportError:
     from django.core.urlresolvers import reverse
 
-from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
+from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard     # TODO: нет пакета admin_tools в requirements.txt
 from admin_tools.utils import get_admin_site_name
 
 
@@ -112,3 +112,5 @@ class CustomAppIndexDashboard(AppIndexDashboard):
         Use this method if you need to access the request context.
         """
         return super(CustomAppIndexDashboard, self).init_with_context(context)
+
+# TODO: в чем была необхомость использовать библиотеку django-suit?

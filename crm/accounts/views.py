@@ -6,8 +6,8 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from .models import UserProfile
-from .serializers import UserProfileSerializer
-from . import permissions
+from .serializers import UserProfileSerializer  # TODO: нет файла serializers, то есть ошибка импорта
+from . import permissions   # TODO: нет файла permissions, то есть ошибка импорта
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -50,4 +50,4 @@ class LogoutViewSet(viewsets.ViewSet):
         Operation deletes login token.
         """
         request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_200_OK)  # TODO: нет импорта Response
