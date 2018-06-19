@@ -6,18 +6,7 @@ from django.conf import settings
 import json
 
 
-class AgreementManager(models.Manager):
-    def all(self):
-        with open(settings.BASE_DIR + '\payments.json') as file:
-            data = str(file.read())
-        p = json.loads(data,  object_hook = as_agreement)
-        return p
 
-    def by_id(self, agreement_id):
-        resp = [agr for agr in Agreement.objects.all() if agr.id==agreement_id]
-        if len(resp) > 0:
-            return resp[0]
-        return None
 
 
 def as_agreement(dct):
@@ -46,7 +35,7 @@ class PaymentManager(models.Manager):
         # TODO: use https://docs.python.org/3/library/os.path.html#os.path.join
         with open(os.path.join(settings.BASE_DIR + '/payments.json')) as file:
             data = str(file.read())
-        p = json.loads(data,  object_hook = as_payment)
+        p = json.loads(data,  object_hook=as_payment)
         return p
 
     def by_agreement_id(self, agreement_id):

@@ -22,6 +22,7 @@ class AgreementsViewSet(viewsets.ViewSet):
     permission_classes = (IsAuthenticated, )
 
     def retrieve(self, request, pk):
+
         agreement = Agreement.objects.by_id(int(pk))
         serializer = AgreementSerializer(agreement, many=False)
         return Response(serializer.data)    # TODO: нет статуса
