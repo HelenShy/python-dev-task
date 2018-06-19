@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import admin_tools
 from django.conf.urls import include
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin_tools/', include('admin_tools.urls')),
 ]

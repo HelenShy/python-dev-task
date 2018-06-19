@@ -1,7 +1,7 @@
 from django.db import models
 import requests
 from django.conf import settings
-# Create your models here.
+
 
 class Application(models.Model):
     name = models.CharField(max_length=64)
@@ -23,7 +23,9 @@ class Application(models.Model):
         login_url = 'http://127.0.0.1:8000/api/v2/login/'
         auth = requests.post(login_url, data = {'username': 'admin',
                                                 'password': 'skorost123'})
-        if auth.status_code != 200:
+        if auth.status_code == 401:
+            return "ERROR: User cannot be authorised."
+        elif auth.status_code != 200:
             return "ERROR: Connection to payments` api cannot be established."
         token = auth.json()['token']
         payments_url = ('http://127.0.0.1:8000/api/v2/agreements/'
@@ -31,12 +33,4 @@ class Application(models.Model):
         headers = {'Content-Type': 'application/json',
                     'Authorization': 'Token ' + token}
         resp = requests.get(payments_url, headers=headers)
-        if resp.json() == []:
-            return "There are no payments for this agreement yet."
-        data = ""
-        for i in resp.json():
-            data += "Payment ID: " + str(i['id']) + "\n"
-            data += "Amount: " + str(i['amount']) + "\n"
-            data += "Date: " + str(i['date']) + "\n"
-            data += "\n"
-        return data
+        return resp.json()

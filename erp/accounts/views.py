@@ -1,10 +1,17 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status, generics, filters, permissions as prm
+from rest_framework import (
+    viewsets,
+    status,
+    generics,
+    filters,
+    permissions as prm)
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.permissions import (IsAuthenticatedOrReadOnly,
-IsAuthenticated, IsAdminUser )
+from rest_framework.permissions import (
+    IsAuthenticatedOrReadOnly,
+    IsAuthenticated,
+    IsAdminUser )
 
 from .models import UserProfile
 from .serializers import UserProfileSerializer
